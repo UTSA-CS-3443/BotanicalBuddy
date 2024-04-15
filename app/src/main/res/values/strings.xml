@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BotanicalBuddy</string>
+    <string name="water_savers">Water Savers</string>
+    <string name="cool_tones">Cool Tones</string>
+    <string name="shade_plants">Shade Plants</string>
+    <string name="shallow_soils">Shallow Soils</string>
+</resources>
