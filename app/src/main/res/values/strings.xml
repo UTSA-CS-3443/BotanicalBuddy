@@ -4,4 +4,7 @@
     <string name="cool_tones">Cool Tones</string>
     <string name="shade_plants">Shade Plants</string>
     <string name="shallow_soils">Shallow Soils</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
 </resources>
