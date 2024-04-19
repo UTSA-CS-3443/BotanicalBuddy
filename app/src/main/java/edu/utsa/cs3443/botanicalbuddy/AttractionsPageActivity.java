@@ -6,15 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.io.IOException;
-import java.util.List;
+
 
 import edu.utsa.cs3443.botanicalbuddy.model.AttractionsAdapter;
 import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 public class AttractionsPageActivity extends AppCompatActivity {
 
