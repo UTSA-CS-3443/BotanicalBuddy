@@ -27,7 +27,7 @@ app:cardCornerRadius="8dp">
         android:layout_height="200dp"
         android:scaleType="centerCrop"
         android:src="@drawable/mays_fam_display"
-        tools:src="@drawable/Mays_Fam_Display" />
+        tools:src="@drawable/mays_fam_display" />
 
     <TextView
         android:id="@+id/textViewAttractionDescription"
