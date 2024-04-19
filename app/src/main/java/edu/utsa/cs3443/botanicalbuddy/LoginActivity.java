@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.IOException;
+
 import edu.utsa.cs3443.botanicalbuddy.model.LoginCheck;
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,14 +42,18 @@ public class LoginActivity extends AppCompatActivity {
                 user = username.getText().toString();
                 pass = password.getText().toString();
 
-                if (LoginCheck.validLogin(user, pass)) {
-                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, ConserveActivity.class);
-                    intent.putExtra("user", user);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(LoginActivity.this, "Your Username or Password was not correct, try again.", Toast.LENGTH_SHORT).show();
+                try {
+                    if (LoginCheck.validLogin(user, pass, LoginActivity.this)) {
+                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, ConserveActivity.class);
+                        intent.putExtra("user", user);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(LoginActivity.this, "Your Username or Password was not correct, try again.", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
 
 
