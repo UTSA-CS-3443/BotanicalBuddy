@@ -25,7 +25,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
             textViewName.setText(destination.getName());
             textViewDescription.setText(destination.getDescription());
 
-            imageViewAttraction.setImageResource(R.drawable.Mays_Fam_Display);
+            imageViewAttraction.setImageResource(R.drawable.mays_fam_display);
         }
     }
 }
