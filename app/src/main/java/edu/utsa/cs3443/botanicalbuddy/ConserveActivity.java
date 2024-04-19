@@ -1,11 +1,14 @@
 package edu.utsa.cs3443.botanicalbuddy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,27 +34,64 @@ public class ConserveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_conserve);
-
+        Context thisContext = this;
         garden = new ArrayList<>();
         buildGarden();
 
         RecyclerView recyclerView = findViewById(R.id.myRecyclerView);
-        Plant_RV_Adapter adapter = new Plant_RV_Adapter(this, garden.get(0));
+
+        Plant_RV_Adapter adapter = new Plant_RV_Adapter(this, garden.get(0)); //set a default for launch
+
+
         int verticalSpaceHeight = 50; // Example vertical spacing in pixels
         int horizontalSpaceWidth = 20; // Example horizontal spacing in pixels
         recyclerView.addItemDecoration(new SpaceItemDecoration(verticalSpaceHeight, horizontalSpaceWidth));
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+        Button coolTonesButton = findViewById(R.id.cool_tones);
+        Button shadePlantsButton = findViewById(R.id.shade_plants);
+        Button shallowSoilsButton = findViewById(R.id.shallow_soils);
+
+
+        shadePlantsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                recyclerView.setAdapter(
+                        new Plant_RV_Adapter(thisContext, garden.get(0)));
+            }
+        });
+
+        coolTonesButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                recyclerView.setAdapter(
+                        new Plant_RV_Adapter(thisContext, garden.get(1)));
+            }
+        });
+
+        shallowSoilsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                recyclerView.setAdapter(
+                        new Plant_RV_Adapter(thisContext, garden.get(2)));
+            }
+        });
+
     }
 
     private void buildGarden() {
-        String[] gardenCats = {"CoolTones", "ShadePlants", "ShallowSoils"};
+        String[] gardenCats = {"ShadePlants", "CoolTones", "ShallowSoils"};
         for (String cat : gardenCats) {
             PlantList plantList = new PlantList(cat);
             String filename = cat + ".csv";
@@ -66,7 +106,7 @@ public class ConserveActivity extends AppCompatActivity {
         }
     }
     public static class ResourceProvider {
-        private final Context context;
+        private static Context context;
         /**
          * Constructor for ResourceProvider.
          *
@@ -75,6 +115,9 @@ public class ConserveActivity extends AppCompatActivity {
         public ResourceProvider(Context context) {
             this.context = context;
         }
+        public static Context getStaticContext(){return context;}
+
+
         /**
          * Retrieves the drawable resource ID for a given resource name.
          *

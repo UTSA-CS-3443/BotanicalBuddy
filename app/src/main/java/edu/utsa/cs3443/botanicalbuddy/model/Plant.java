@@ -19,7 +19,7 @@ public class Plant {
     }
 
     public String getPhotoName() {
-        return photoName;
+        return photoName.trim();
     }
 
     private final String commonName;
@@ -30,13 +30,13 @@ public class Plant {
     public Plant(String commonName, String latinName, String photoName) {
         this.commonName = commonName;
         this.latinName = latinName;
-        this.photoName = photoName;
+        this.photoName = photoName.trim();
     }
 
     public Plant(String commonName, String latinName) {
         this.commonName = commonName;
         this.latinName = latinName;
-        this.photoName = "generic";
+        this.photoName = "main_logo_flower_only";
     }
 
 

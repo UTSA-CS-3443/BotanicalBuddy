@@ -13,6 +13,7 @@ public class PlantList {
 
     private ArrayList<Plant> plants;
     private final String type;
+    private final String defaultPlantLogoName = "main_logo_flower_only";
 
     public PlantList(String type) {
         this.type = type;
@@ -28,10 +29,14 @@ public class PlantList {
             while(scanner.hasNextLine()){
                 String[] fields = scanner.nextLine().split(",");
                 if(fields.length == 3){
-                    if(fields[2].equals("")){
-                        fields[2] = "main_logo_flower_only";
+                    if(fields[2].isEmpty() ){
+                        fields[2] = defaultPlantLogoName;
                     }
                     Plant plant = new Plant(fields[0], fields[1], fields[2]);
+                    Log.i("PlantList",plant.toString());
+                    this.plants.add(plant);
+                } else if (fields.length == 2) {
+                    Plant plant = new Plant(fields[0], fields[1], defaultPlantLogoName);
                     Log.i("PlantList",plant.toString());
                     this.plants.add(plant);
                 }
