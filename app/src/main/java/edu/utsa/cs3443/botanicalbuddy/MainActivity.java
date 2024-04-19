@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Paul's Button to ConservePage
         Button conserveButton = findViewById(R.id.conserveButton);
+        Button mapButton = findViewById(R.id.mapButton);
         conserveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //end of Paul's Button to ConservePage
+        //Jesus's button
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this, MapActivity.class));
+            }
+        });
+        //end of Jesus's button
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
