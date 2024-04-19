@@ -18,14 +18,14 @@ public class AttractionsPageActivity extends AppCompatActivity {
         ImageView imageViewAttraction = findViewById(R.id.imageViewAttraction);
         TextView textViewDescription = findViewById(R.id.textViewAttractionDescription);
 
-        // Assuming a Destination object is passed with the key "destination"
+
         Destination destination = (Destination) getIntent().getSerializableExtra("destination");
 
         if (destination != null) {
             textViewName.setText(destination.getName());
             textViewDescription.setText(destination.getDescription());
-            // Image handling, assuming a static image for demonstration
-            imageViewAttraction.setImageResource(R.drawable.Mays_Fam_Display); // Use a generic placeholder or related image
+
+            imageViewAttraction.setImageResource(R.drawable.Mays_Fam_Display);
         }
     }
 }
