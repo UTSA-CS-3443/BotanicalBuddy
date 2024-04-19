@@ -1,44 +1,32 @@
 package edu.utsa.cs3443.botanicalbuddy;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import java.io.IOException;
 
-
-import edu.utsa.cs3443.botanicalbuddy.model.AttractionsAdapter;
-import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
-
-
+import edu.utsa.cs3443.botanicalbuddy.model.Destination;
 
 public class AttractionsPageActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private AttractionsAdapter adapter;
-    private DestinationList destinationList;
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attractions);
 
-        recyclerView = findViewById(R.id.recyclerViewAttractions);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        TextView textViewName = findViewById(R.id.textViewAttractionName);
+        ImageView imageViewAttraction = findViewById(R.id.imageViewAttraction);
+        TextView textViewDescription = findViewById(R.id.textViewAttractionDescription);
 
-        // Initialize DestinationList and load destinations
-        destinationList = new DestinationList();
-        try {
-            destinationList.loadDestinations(this);
-        } catch (IOException e) {
-            // Proper error handling e.g., showing an error message to the user
-            e.printStackTrace();
+        // Assuming a Destination object is passed with the key "destination"
+        Destination destination = (Destination) getIntent().getSerializableExtra("destination");
+
+        if (destination != null) {
+            textViewName.setText(destination.getName());
+            textViewDescription.setText(destination.getDescription());
+            // Image handling, assuming a static image for demonstration
+            imageViewAttraction.setImageResource(R.drawable.Mays_Fam_Display); // Use a generic placeholder or related image
         }
-
-        // Setup adapter with loaded destinations
-        adapter = new AttractionsAdapter(destinationList.getDestinations());
-        recyclerView.setAdapter(adapter);
     }
 }
+

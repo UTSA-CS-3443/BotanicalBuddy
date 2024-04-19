@@ -19,15 +19,15 @@ app:cardCornerRadius="8dp">
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="Attraction Name" />
+        tools:text="Mays Family Display Garden" />
 
     <ImageView
         android:id="@+id/imageViewAttraction"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/example_image"
-        tools:src="@drawable/example_image" />
+        android:src="@drawable/Mays_Fam_Display"
+        tools:src="@drawable/Mays_Fam_Display" />
 
     <TextView
         android:id="@+id/textViewAttractionDescription"
@@ -35,7 +35,9 @@ app:cardCornerRadius="8dp">
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingTop="8dp"
-        tools:text="Description of the attraction goes here. It can be multiple lines long and should provide detailed information about the attraction." />
+        tools:text="This diverse, ever-changing showcase of color, texture, and fragrance celebrates the rich possibilities of horticulture in South Central Texas. Seasonal plantings illustrate compositions and act as a living curriculum whether for both the amateur and professional gardener.
+
+Featuring an abundance of show-stopping native and adapted plants, the Mays Family Display Garden dazzles guests with hot and energetic color schemes that celebrate the heritage of San Antonio. A gentle waterfall brings a refreshing element to the space and provides the tranquility richly deserved for the cherished Kumamoto En Japanese Garden nearby." />
 
 </LinearLayout>
 
