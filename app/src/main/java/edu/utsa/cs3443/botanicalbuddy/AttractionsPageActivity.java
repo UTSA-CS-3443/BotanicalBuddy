@@ -44,10 +44,10 @@ public class AttractionsPageActivity extends AppCompatActivity {
     private void initializeImageMap() {
         destinationImageMap = new HashMap<>();
         // Populate the map with destination names and corresponding image resource IDs
-        destinationImageMap.put("Halsell Welcome Building", R.drawable.mays_fam_display);
-        destinationImageMap.put("H-E-B Discovery Center", R.drawable.kumamoto_en);
-        destinationImageMap.put("The Zachry Foundation Culinary Garden", R.drawable.greehey_lawn);
-        // Add other destinations similarly...
+        destinationImageMap.put("Mays Family Display Garden", R.drawable.mays_fam_display);
+        destinationImageMap.put("Kumamoto enr", R.drawable.kumamoto_en);
+        destinationImageMap.put("greehey lawn", R.drawable.greehey_lawn);
+
     }
 }
 
