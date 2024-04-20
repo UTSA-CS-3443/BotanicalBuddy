@@ -7,4 +7,9 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="login">Login</string>
+    <string name="passHint">Enter Password Hint</string>
+    <string name="register">Register</string>
+    <string name="hintButton">Cant remember your password?</string>
+    <string name="checkhint">Check Hint</string>
+    <string name="hintText">Enter a valid username to get a password hint</string>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -33,18 +34,20 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         Button doLogin = findViewById(R.id.doLogin);
+        TextView goToHint = findViewById(R.id.goToHint);
+        Button goToRegister = findViewById(R.id.goToRegister);
         EditText username = findViewById(R.id.usernameText);
         EditText password = findViewById(R.id.passwordText);
 
         doLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //todo: make it pass the user to the next activity
-                user = username.getText().toString();
-                pass = password.getText().toString();
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
 
                 try {
                     if (LoginCheck.validLogin(user, pass, LoginActivity.this)) {
-                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login Successful, Welcome " + user, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, ConserveActivity.class);
                         intent.putExtra("user", user);
                         startActivity(intent);
@@ -57,6 +60,20 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        goToRegister.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        goToHint.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(LoginActivity.this, HintActivity.class);
+                startActivity(intent);
             }
         });
     }
