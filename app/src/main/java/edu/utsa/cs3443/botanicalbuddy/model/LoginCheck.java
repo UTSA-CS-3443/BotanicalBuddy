@@ -25,24 +25,18 @@ public class LoginCheck {
     private String hint;
 
     public static void addAccount(String username, String password, String hint, RegistrationActivity activity) throws IOException {
-        AssetManager manager = activity.getAssets();
-        File tempFile = File.createTempFile("tempAccounts", null, activity.getCacheDir());
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-        writer.write(username + "," + password + "," + hint);
-        writer.newLine();
-        writer.flush();
-        writer.close();
-        InputStream in = new FileInputStream(tempFile);
-        OutputStream out = manager.openFd("accounts.csv").createOutputStream();
+        try {
+            String content = username + "," + password + "," + hint;
+            File file = new File("accounts.csv");
 
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = in.read(buffer)) > 0) {
-            out.write(buffer, 0, length);
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        in.close();
-        out.close();
     }
 
     public static Boolean validLogin(String username, String password, LoginActivity activity) throws IOException {
