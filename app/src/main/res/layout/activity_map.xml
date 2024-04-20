@@ -5,20 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context=".MapActivity">
-    <include layout="@layout/menu"/>
+    <include layout="@layout/menu"
+        android:id="@+id/menu"/>
+
 
     <ImageView
         android:id="@+id/map"
-        android:layout_width="409dp"
-        android:layout_height="652dp"
+        android:layout_width="0dp"
+        android:layout_height="657dp"
+        android:layout_marginBottom="50dp"
         android:src="@drawable/garden_map"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/menu"
+        app:layout_constraintVertical_bias="0.24000001" />
 
     <Button
         android:id="@+id/button32"
@@ -27,11 +31,36 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/map"
-        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="@+id/map"
         app:layout_constraintTop_toTopOf="@+id/map"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.103" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Key"
+        android:textColor="@color/primary_pink"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="@+id/map"
+        app:layout_constraintTop_toTopOf="@+id/map"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <ImageView
+        android:id="@+id/mapKey"
+        android:layout_width="124dp"
+        android:layout_height="110dp"
+        android:src="@drawable/map_key"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="@+id/map"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.036" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
