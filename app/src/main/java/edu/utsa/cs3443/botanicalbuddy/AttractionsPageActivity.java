@@ -1,8 +1,11 @@
 package edu.utsa.cs3443.botanicalbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +22,21 @@ public class AttractionsPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attractions);
+
+        ImageView logo = findViewById(R.id.main_logo);
+        ImageView menu = findViewById(R.id.dropdown_menu);
+        logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapActivity.this, MainActivity.class));
+            }
+        });
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMenu(v);
+            }
+        });
 
         initializeImageMap();
 
@@ -41,6 +59,27 @@ public class AttractionsPageActivity extends AppCompatActivity {
         }
     }
 
+    public void showMenu(View v) {
+        PopupMenu popupMenu = new PopupMenu(AttractionsPageActivity.this, v);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.menuMap) {
+                    startActivity(new Intent(AttractionsPageActivity.this, MapActivity.class));
+                }
+                if(item.getItemId() == R.id.menuConserve) {
+                    startActivity(new Intent(AttractionsPageActivity.this, ConserveActivity.class));
+                }
+                if(item.getItemId() == R.id.menuLogin) {
+                    startActivity(new Intent(AttractionsPageActivity.this, LoginActivity.class));
+                }
+
+                return true;
+            }
+        });
+        popupMenu.show();
+    }
     private void initializeImageMap() {
         destinationImageMap = new HashMap<>();
         // Populate the map with destination names and corresponding image resource IDs
