@@ -15,6 +15,7 @@ import android.content.res.AssetManager;
 
 import androidx.annotation.NonNull;
 
+import edu.utsa.cs3443.botanicalbuddy.HintActivity;
 import edu.utsa.cs3443.botanicalbuddy.LoginActivity;
 import edu.utsa.cs3443.botanicalbuddy.RegistrationActivity;
 
@@ -37,6 +38,25 @@ public class LoginCheck {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getHint(String username, HintActivity activity) throws IOException {
+        AssetManager manager = activity.getAssets();
+
+        InputStream csvFile = manager.open("accounts.csv");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data[0].equals(username)) {
+                    return "Your hint is: " + data[2];
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "Your hint is: N/A";
     }
 
     public static Boolean validLogin(String username, String password, LoginActivity activity) throws IOException {
