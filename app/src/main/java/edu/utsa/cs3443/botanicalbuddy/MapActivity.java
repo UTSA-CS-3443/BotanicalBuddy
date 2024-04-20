@@ -3,9 +3,11 @@ package edu.utsa.cs3443.botanicalbuddy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -41,7 +43,7 @@ public class MapActivity extends AppCompatActivity {
         ImageView menu = findViewById(R.id.dropdown_menu);
         button32.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Log.i("awdawd", "button press");
                 startActivity(new Intent(MapActivity.this, ConserveActivity.class));
             }
@@ -53,17 +55,37 @@ public class MapActivity extends AppCompatActivity {
         });
         logo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 startActivity(new Intent(MapActivity.this, MainActivity.class));
             }
         });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(MapActivity.this, "clicked menu", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                showMenu(v);
             }
         });
 
+    }
+    public void showMenu(View v) {
+        PopupMenu popupMenu = new PopupMenu(MapActivity.this, v);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.menuMap) {
+                    startActivity(new Intent(MapActivity.this, MapActivity.class));
+                }
+                if(item.getItemId() == R.id.menuConserve) {
+                    startActivity(new Intent(MapActivity.this, ConserveActivity.class));
+                }
+                if(item.getItemId() == R.id.menuLogin) {
+                    startActivity(new Intent(MapActivity.this, LoginActivity.class));
+                }
 
+                return true;
+            }
+        });
+        popupMenu.show();
     }
 }
