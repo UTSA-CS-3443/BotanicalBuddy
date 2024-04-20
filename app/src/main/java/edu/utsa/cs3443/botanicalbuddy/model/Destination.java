@@ -11,6 +11,11 @@ public class Destination {
         this.name = name;
         this.description = description;
     }
+    public Destination(int id, String name) {
+        this.id = id;
+        this.name = name;
+        this.description = "Description not provided.";
+    }
     public String getName() {
         return this.name;
     }

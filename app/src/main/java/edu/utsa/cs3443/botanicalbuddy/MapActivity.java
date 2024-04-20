@@ -2,8 +2,11 @@ package edu.utsa.cs3443.botanicalbuddy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,9 +37,12 @@ public class MapActivity extends AppCompatActivity {
             */
 
         Button button32 = findViewById(R.id.button32);
+        ImageView logo = findViewById(R.id.main_logo);
+        ImageView menu = findViewById(R.id.dropdown_menu);
         button32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i("awdawd", "button press");
                 startActivity(new Intent(MapActivity.this, ConserveActivity.class));
             }
         });
@@ -44,6 +50,18 @@ public class MapActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MapActivity.this, MainActivity.class));
+            }
+        });
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MapActivity.this, "clicked menu", Toast.LENGTH_SHORT).show();
+            }
         });
 
 
