@@ -28,7 +28,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
         logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MapActivity.this, MainActivity.class));
+                startActivity(new Intent(AttractionsPageActivity.this, MainActivity.class));
             }
         });
         menu.setOnClickListener(new View.OnClickListener() {
