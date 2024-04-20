@@ -72,7 +72,8 @@ public class LoginActivity extends AppCompatActivity {
 
         goToHint.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Toast.makeText(LoginActivity.this, "this will go to hint view", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, HintActivity.class);
+                startActivity(intent);
             }
         });
     }
