@@ -4,4 +4,10 @@
     <string name="cool_tones">Cool Tones</string>
     <string name="shade_plants">Shade Plants</string>
     <string name="shallow_soils">Shallow Soils</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="passHint">Enter Password Hint</string>
+    <string name="register">Register</string>
+    <string name="hintButton">Cant remember your password?</string>
 </resources>

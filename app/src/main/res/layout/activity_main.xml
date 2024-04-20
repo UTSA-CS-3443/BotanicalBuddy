@@ -35,5 +35,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conserveButton" />
 
+    <Button
+        android:id="@+id/loginTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGINTEST"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapButton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

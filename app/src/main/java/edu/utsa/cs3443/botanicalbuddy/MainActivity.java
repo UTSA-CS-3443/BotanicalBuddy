@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Paul's Button to ConservePage
+        Button loginTest = findViewById(R.id.loginTest);
         Button conserveButton = findViewById(R.id.conserveButton);
         Button mapButton = findViewById(R.id.mapButton);
         conserveButton.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //end of Jesus's button
+
+        loginTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
