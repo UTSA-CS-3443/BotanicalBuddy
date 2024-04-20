@@ -15,11 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@color/secondary_green" />
-        <!-- Pink background view -->
-        <!-- Adjust this margin to where you want the pink view -->
 
-
-        <!-- TextView for Attraction Description -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="90dp"
