@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Button loginTest = findViewById(R.id.loginTest);
         Button conserveButton = findViewById(R.id.conserveButton);
         Button mapButton = findViewById(R.id.mapButton);
+        Button mainToRegister = findViewById(R.id.mainToRegister);
         conserveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
+
+        mainToRegister.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
             }
         });
 
