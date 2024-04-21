@@ -33,7 +33,7 @@ public class PlantList {
                         fields[2] = defaultPlantLogoName;
                     }
                     Plant plant = new Plant(fields[0], fields[1], fields[2]);
-                    Log.i("PlantList",plant.toString());
+                    //Log.i("PlantList",plant.toString());
                     this.plants.add(plant);
                 } else if (fields.length == 2) {
                     Plant plant = new Plant(fields[0], fields[1], defaultPlantLogoName);
