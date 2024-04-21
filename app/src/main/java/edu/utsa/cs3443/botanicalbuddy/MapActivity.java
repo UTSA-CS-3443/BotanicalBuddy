@@ -42,6 +42,7 @@ public class MapActivity extends AppCompatActivity {
 
 
         Button button1 = findViewById(R.id.button1);
+        Button button2 = findViewById(R.id.button2);
         ImageView logo = findViewById(R.id.main_logo);
         ImageView menu = findViewById(R.id.dropdown_menu);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +50,16 @@ public class MapActivity extends AppCompatActivity {
             public void onClick(View v) {
                 intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
                 intent.putExtra("descriptionId", 1);
+                startActivity(intent);
+
+
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 2);
                 startActivity(intent);
 
 
