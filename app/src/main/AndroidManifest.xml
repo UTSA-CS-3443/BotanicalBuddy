@@ -25,6 +25,9 @@
             android:name=".MapActivity"
             android:exported="false" />
         <activity
+            android:name=".AttractionsPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConserveActivity"
             android:exported="false" />
         <activity

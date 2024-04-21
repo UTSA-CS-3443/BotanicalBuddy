@@ -6,8 +6,11 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -58,6 +61,34 @@ public class ConserveActivity extends AppCompatActivity {
             return insets;
         });
 
+        //Jesus' menu
+        ImageView homeLogo = findViewById(R.id.main_logo);
+        ImageView menu = findViewById(R.id.dropdown_menu);
+        homeLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConserveActivity.this, MainActivity.class));
+            }
+        });
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMenu(v);
+            }
+        });
+        // [/Jesus]
+
+
+
+
+
+
+
+
+
+
+
+
 
         Button coolTonesButton = findViewById(R.id.cool_tones);
         Button shadePlantsButton = findViewById(R.id.shade_plants);
@@ -104,6 +135,28 @@ public class ConserveActivity extends AppCompatActivity {
             garden.add(plantList);
 
         }
+    }
+
+    public void showMenu(View v) {
+        PopupMenu popupMenu = new PopupMenu(ConserveActivity.this, v);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.menuMap) {
+                    startActivity(new Intent(ConserveActivity.this, MapActivity.class));
+                }
+                if(item.getItemId() == R.id.menuConserve) {
+                    startActivity(new Intent(ConserveActivity.this, ConserveActivity.class));
+                }
+                if(item.getItemId() == R.id.menuLogin) {
+                    startActivity(new Intent(ConserveActivity.this, LoginActivity.class));
+                }
+
+                return true;
+            }
+        });
+        popupMenu.show();
     }
     public static class ResourceProvider {
         private static Context context;

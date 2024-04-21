@@ -1,4 +1,5 @@
 package edu.utsa.cs3443.botanicalbuddy.model;
+import android.content.Context;
 import android.content.res.AssetManager;
 
 import java.io.FileNotFoundException;
@@ -17,8 +18,8 @@ public class DestinationList {
         destinations = new ArrayList<Destination>();
     }
 
-    public void loadDestinations(MapActivity activity) throws IOException {
-        AssetManager manager = activity.getAssets();
+    public void loadDestinations(Context context) throws IOException {
+        AssetManager manager = context.getAssets();
         InputStream file = manager.open("destinations.csv");
         Scanner scan = new Scanner(file);
         String line = "";

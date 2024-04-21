@@ -25,6 +25,15 @@ public class AttractionsPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attractions);
 
+        //pd
+        destinationList = new DestinationList();
+        try {
+            destinationList.loadDestinations(this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //[/pd]
+
         if (destinationList == null) {
             throw new IllegalStateException("Destination data must be loaded before accessing this activity.");
         }

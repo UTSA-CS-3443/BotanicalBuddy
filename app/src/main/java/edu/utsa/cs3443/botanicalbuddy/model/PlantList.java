@@ -37,7 +37,7 @@ public class PlantList {
                     this.plants.add(plant);
                 } else if (fields.length == 2) {
                     Plant plant = new Plant(fields[0], fields[1], defaultPlantLogoName);
-                    Log.i("PlantList",plant.toString());
+                    //Log.i("PlantList",plant.toString());
                     this.plants.add(plant);
                 }
 

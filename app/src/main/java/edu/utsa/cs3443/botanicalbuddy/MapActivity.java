@@ -48,6 +48,7 @@ public class MapActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("MapActivity","Button1 pressed");
                 intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
                 intent.putExtra("descriptionId", 1);
                 startActivity(intent);
@@ -58,6 +59,7 @@ public class MapActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("MapActivity","Button2 pressed");
                 intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
                 intent.putExtra("descriptionId", 2);
                 startActivity(intent);
