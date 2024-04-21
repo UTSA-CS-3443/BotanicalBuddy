@@ -19,24 +19,60 @@ import java.util.ArrayList;
 import edu.utsa.cs3443.botanicalbuddy.R;
 import edu.utsa.cs3443.botanicalbuddy.ConserveActivity;
 
+
+/**
+ * @author Paul Dutton hyf570
+ * This adapter class manages the data displayed in a RecyclerView for the Botanical Buddy application's ConserveActivity.
+ * It creates and binds views for each Plant object in the provided plant list.
+ */
 public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyViewHolder>{
+    /**
+     * The Android context used to access resources.
+     */
     private final Context context;
+    /**
+     * The list of Plant objects to be displayed in the RecyclerView.
+     */
     private final ArrayList<Plant> plants;
+    /**
+     * An instance of ConserveActivity.ResourceProvider used to access resources (can be improved).
+     */
     private final ConserveActivity.ResourceProvider resourceProvider;
 
-
+    /**
+     * Creates a new Plant_RV_Adapter with the specified context and a list of Plant objects.
+     *
+     * @param context The Android context used to access resources.
+     * @param plants The list of Plant objects to be displayed.
+     */
     public Plant_RV_Adapter(Context context, ArrayList<Plant> plants) {
         this.context = context;
         this.plants = plants;
         this.resourceProvider = new ConserveActivity.ResourceProvider(context);
 
     }
+
+    /**
+     * Creates a new Plant_RV_Adapter with the specified context and a PlantList object.
+     * The adapter retrieves the list of plants from the PlantList object.
+     *
+     * @param context The Android context used to access resources.
+     * @param plantList The PlantList object containing the list of plants to be displayed.
+     */
     public Plant_RV_Adapter(Context context, PlantList plantList) {
         this.context = context;
         this.plants = plantList.getPlants();
         this.resourceProvider = new ConserveActivity.ResourceProvider(context);
     }
 
+
+    /**
+     * Creates a new ViewHolder object by inflating the layout for a single plant item.
+     *
+     * @param parent   The ViewGroup that holds the view items.
+     * @param viewType The view type for the current item (not used in this implementation).
+     * @return A new MyViewHolder object.
+     */
     @NonNull
     @Override
     public Plant_RV_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,6 +81,13 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
         return new Plant_RV_Adapter.MyViewHolder(view);
     }
 
+    /**
+     * Binds data from a Plant object to the corresponding view holder at a specified position.
+     * Sets the plant image, common name, latin name, and checkbox state.
+     *
+     * @param holder   The MyViewHolder object that holds the views for the current item.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull Plant_RV_Adapter.MyViewHolder holder, int position) {
 
@@ -61,6 +104,11 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
 
     }
 
+    /**
+     * Returns the total number of items in the adapter's data set.
+     *
+     * @return The number of Plant objects in the plants list.
+     */
     @Override
     public int getItemCount() {
         return plants.size();
@@ -78,6 +126,11 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
 
         CardView cardView;
 
+        /**
+         *
+         * Gets all the objects within the CardView row for access/implementation.
+         * @param itemView
+         */
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 

@@ -27,9 +27,16 @@ import java.util.ArrayList;
 import edu.utsa.cs3443.botanicalbuddy.model.Plant;
 import edu.utsa.cs3443.botanicalbuddy.model.PlantList;
 import edu.utsa.cs3443.botanicalbuddy.model.Plant_RV_Adapter;
-
+/**
+ * This activity class represents the ConserveActivity screen in the Botanical Buddy application.
+ * It allows users to view and interact with a list of plants categorized based on specific criteria.
+ *
+ * @author Paul Dutton hyf570
+ */
 public class ConserveActivity extends AppCompatActivity {
-
+    /**
+     * An ArrayList containing PlantList objects representing different plant categories (e.g., shade plants, cool tones).
+     */
     private ArrayList<PlantList> garden;
 
     @Override
@@ -61,7 +68,7 @@ public class ConserveActivity extends AppCompatActivity {
             return insets;
         });
 
-        //Jesus' menu
+        //----------------------------------------------Jesus' menu
         ImageView homeLogo = findViewById(R.id.main_logo);
         ImageView menu = findViewById(R.id.dropdown_menu);
         homeLogo.setOnClickListener(new View.OnClickListener() {
@@ -76,18 +83,7 @@ public class ConserveActivity extends AppCompatActivity {
                 showMenu(v);
             }
         });
-        // [/Jesus]
-
-
-
-
-
-
-
-
-
-
-
+        // ---------------------------------------------[/Jesus]
 
 
         Button coolTonesButton = findViewById(R.id.cool_tones);
@@ -120,7 +116,9 @@ public class ConserveActivity extends AppCompatActivity {
         });
 
     }
-
+    /**
+     * Creates PlantList objects for different plant categories and populates them with data from CSV files.
+     */
     private void buildGarden() {
         String[] gardenCats = {"ShadePlants", "CoolTones", "ShallowSoils"};
         for (String cat : gardenCats) {
@@ -136,7 +134,11 @@ public class ConserveActivity extends AppCompatActivity {
 
         }
     }
-
+    /**
+     * Inflates and shows a popup menu with navigation options.
+     *
+     * @param v The view that triggered the menu display.
+     */
     public void showMenu(View v) {
         PopupMenu popupMenu = new PopupMenu(ConserveActivity.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
@@ -158,7 +160,15 @@ public class ConserveActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
+    /**
+     * This utility class provides methods to access application resources within the Botanical Buddy application.
+     */
     public static class ResourceProvider {
+        /**
+         * A static reference to the application context. This approach has limitations
+         * and can potentially lead to memory leaks. TODO: Consider using a non-static approach
+         * or a Dependency Injection framework for better maintainability.
+         */
         private static Context context;
         /**
          * Constructor for ResourceProvider.
@@ -186,15 +196,39 @@ public class ConserveActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This class is a custom RecyclerView.ItemDecoration that adds spacing between items in a RecyclerView layout.
+     */
     public static class SpaceItemDecoration extends RecyclerView.ItemDecoration {
+        /**
+         * The height of the vertical space to be added between items.
+         */
         private final int verticalSpaceHeight;
+
+        /**
+         * The width of the horizontal space to be added between items.
+         */
         private final int horizontalSpaceWidth;
 
+        /**
+         * Creates a new SpaceItemDecoration object with the specified vertical and horizontal space dimensions.
+         *
+         * @param verticalSpaceHeight The height of the vertical space in pixels.
+         * @param horizontalSpaceWidth The width of the horizontal space in pixels.
+         */
         public SpaceItemDecoration(int verticalSpaceHeight, int horizontalSpaceWidth) {
             this.verticalSpaceHeight = verticalSpaceHeight;
             this.horizontalSpaceWidth = horizontalSpaceWidth;
         }
 
+        /**
+         * This method defines the offsets for decoration around each item in the RecyclerView.
+         *
+         * @param outRect The Rect object to be populated with offsets.
+         * @param view The view that the decoration is applied to.
+         * @param parent The RecyclerView parent of the view.
+         * @param state The current RecyclerView.State.
+         */
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
             outRect.left = horizontalSpaceWidth;
