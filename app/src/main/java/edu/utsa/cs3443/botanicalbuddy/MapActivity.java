@@ -22,6 +22,9 @@ import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 
 public class MapActivity extends AppCompatActivity {
 
+    /**
+     * Holds the list of destinations loaded into the application.
+     */
     DestinationList list;
     Intent intent;
 
@@ -34,45 +37,53 @@ public class MapActivity extends AppCompatActivity {
             list = new DestinationList();
         Log.i("load","load");
              try {
-                list.loadDestinations(this);
+                list.loadDestinations(this); //load destination data
                 Log.i("load","load");
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException(e); // handle exception
             }
 
+        // **Button Click Listeners**
 
         Button button1 = findViewById(R.id.button1);
-        Button button2 = findViewById(R.id.button2);
-        ImageView logo = findViewById(R.id.main_logo);
-        ImageView menu = findViewById(R.id.dropdown_menu);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("MapActivity","Button1 pressed");
                 intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
-                intent.putExtra("descriptionId", 1);
+                intent.putExtra("descriptionId", 1); // passing id for destination 1
                 startActivity(intent);
 
 
             }
         });
+
+        Button button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("MapActivity","Button2 pressed");
                 intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
-                intent.putExtra("descriptionId", 2);
+                intent.putExtra("descriptionId", 2); // passing id for destination 2
                 startActivity(intent);
 
 
             }
         });
+
+        // **Main Logo Click Listener**
+        ImageView logo = findViewById(R.id.main_logo);
         logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MapActivity.this, MainActivity.class));
+                startActivity(new Intent(MapActivity.this, MainActivity.class)); // log's user out
             }
         });
+
+        /**
+         * Initializes the dropdown menu to handle navigation.
+         * */
+        ImageView menu = findViewById(R.id.dropdown_menu);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +99,12 @@ public class MapActivity extends AppCompatActivity {
         });
 
     }
+
+    /**
+     * Displays and handles interactions with the dropdown menu.
+     *
+     * @param v The view (the menu icon) that was clicked.
+     */
     public void showMenu(View v) {
         PopupMenu popupMenu = new PopupMenu(MapActivity.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
