@@ -18,46 +18,34 @@ import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 import edu.utsa.cs3443.botanicalbuddy.model.Destination;
 
 public class AttractionsPageActivity extends AppCompatActivity {
-    private Map<Integer, Destination> destinationMap;
+   // private Map<Integer, Destination> destinationMap;
     private DestinationList destinationList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attractions);
 
-        /*destinationList = new DestinationList();  // Instantiate DestinationList
-        try {
-            destinationList.loadDestinations(this);  // Assuming this loads the destinations
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle exceptions properly
-        }*/
-        // Initialize the destinations map and image resources
-        initializeDestinationMap();
-        initializeImageMap();
+        if (destinationList == null) {
+            throw new IllegalStateException("Destination data must be loaded before accessing this activity.");
+        }
 
-        // Setup UI components and event handlers
         setupUI();
-
     }
 
     private void setupUI() {
         ImageView logo = findViewById(R.id.main_logo);
         ImageView menu = findViewById(R.id.dropdown_menu);
-        logo.setOnClickListener(v -> startActivity(new Intent(AttractionsPageActivity.this, MainActivity.class)));
+        logo.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
         menu.setOnClickListener(this::showMenu);
 
         TextView textViewName = findViewById(R.id.textViewAttractionName);
         ImageView imageViewAttraction = findViewById(R.id.imageViewAttraction);
         TextView textViewDescription = findViewById(R.id.textViewAttractionDescription);
 
-        // Retrieve the destination ID from the intent
         int destinationId = getIntent().getIntExtra("descriptionId", -1);
         if (destinationId != -1) {
-            Destination destination = destinationMap.get(destinationId);
+            Destination destination = findDestinationById(destinationId);
             if (destination != null) {
-                textViewName.setText(destination.getName());
-                textViewDescription.setText(destination.getDescription());
-                imageViewAttraction.setImageResource(destination.getId());
                 textViewName.setText(destination.getName());
                 textViewDescription.setText(destination.getDescription());
                 int imageResId = getResources().getIdentifier(
@@ -69,6 +57,15 @@ public class AttractionsPageActivity extends AppCompatActivity {
         } else {
             handleNoDestination();
         }
+    }
+
+    private Destination findDestinationById(int id) {
+        for (Destination dest : destinationList.getDestinations()) {
+            if (dest.getId() == id) {
+                return dest;
+            }
+        }
+        return null; // Return null if not found
     }
 
     private void handleNoDestination() {
@@ -103,7 +100,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
-    private void initializeImageMap() {
+   /* private void initializeImageMap() {
         Map<String , Integer> destinationImageMap = new HashMap<>();
         // Populate the map with destination names and corresponding image resource IDs
         destinationImageMap.put("Mays Family Display Garden", R.drawable.mays_fam_display);
@@ -119,7 +116,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
         for (Destination dest : destinationList.getDestinations()) {
             destinationMap.put(dest.getId(), dest);
         }
-    }
+    }*/
 }
 
 
