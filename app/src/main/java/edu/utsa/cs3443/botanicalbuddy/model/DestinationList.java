@@ -30,4 +30,9 @@ public class DestinationList {
         }
     }
 
+
+    public ArrayList<Destination> getDestinations() {
+        return destinations;
+    }
+
 }

@@ -23,6 +23,7 @@ import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 public class MapActivity extends AppCompatActivity {
 
     DestinationList list;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,28 +31,28 @@ public class MapActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_map);
 
-
-            /* try {
+            list = new DestinationList();
+        Log.i("load","load");
+             try {
                 list.loadDestinations(this);
+                Log.i("load","load");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            */
 
-        Button button32 = findViewById(R.id.button32);
+
+        Button button1 = findViewById(R.id.button1);
         ImageView logo = findViewById(R.id.main_logo);
         ImageView menu = findViewById(R.id.dropdown_menu);
-        button32.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("awdawd", "button press");
-                startActivity(new Intent(MapActivity.this, ConserveActivity.class));
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 1);
+                startActivity(intent);
+
+
             }
-        });
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
         });
         logo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +65,13 @@ public class MapActivity extends AppCompatActivity {
             public void onClick(View v) {
                 showMenu(v);
             }
+        });
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
         });
 
     }
