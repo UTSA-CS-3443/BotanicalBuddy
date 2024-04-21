@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import android.content.Context;
 import android.content.res.AssetManager;
 
 import androidx.annotation.NonNull;
@@ -25,12 +27,16 @@ public class LoginCheck {
     private String password;
     private String hint;
 
-    public static void addAccount(String username, String password, String hint, RegistrationActivity activity) throws IOException {
+    public static void addAccount(String username, String password, String hint, Context context) throws IOException {
+
+        File accounts = new File(context.getFilesDir(), "accounts.csv");
+        if (!accounts.exists()){
+            accounts.createNewFile();
+        }
         try {
             String content = username + "," + password + "," + hint;
-            File file = new File("accounts.csv");
 
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            FileWriter fw = new FileWriter(accounts.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(content);
             bw.close();
@@ -40,10 +46,10 @@ public class LoginCheck {
         }
     }
 
-    public static String getHint(String username, HintActivity activity) throws IOException {
-        AssetManager manager = activity.getAssets();
+    public static String getHint(String username, Context context) throws IOException {
+        File accounts = new File(context.getFilesDir(), "accounts.csv");
 
-        InputStream csvFile = manager.open("accounts.csv");
+        FileInputStream csvFile = new FileInputStream(accounts);
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -59,10 +65,10 @@ public class LoginCheck {
         return "Your hint is: N/A";
     }
 
-    public static Boolean validLogin(String username, String password, LoginActivity activity) throws IOException {
-        AssetManager manager = activity.getAssets();
+    public static Boolean validLogin(String username, String password, Context context) throws IOException {
+        File accounts = new File(context.getFilesDir(), "accounts.csv");
 
-        InputStream csvFile = manager.open("accounts.csv");
+        FileInputStream csvFile = new FileInputStream(accounts);
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
             String line;
             while ((line = reader.readLine()) != null) {

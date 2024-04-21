@@ -12,4 +12,5 @@
     <string name="hintButton">Cant remember your password?</string>
     <string name="checkhint">Check Hint</string>
     <string name="hintText">Enter a valid username to get a password hint</string>
+    <string name="welcome">Welcome to</string>
 </resources>

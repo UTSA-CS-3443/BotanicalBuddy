@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
         Button doLogin = findViewById(R.id.doLogin);
         TextView goToHint = findViewById(R.id.goToHint);
         Button goToRegister = findViewById(R.id.goToRegister);
