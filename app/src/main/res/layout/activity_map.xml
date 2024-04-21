@@ -26,15 +26,27 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="16dp"
-        android:layout_height="17dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/map"
-        app:layout_constraintHorizontal_bias="0.868"
-        app:layout_constraintStart_toStartOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintStart_toEndOf="@+id/mapKey"
         app:layout_constraintTop_toTopOf="@+id/map"
-        app:layout_constraintVertical_bias="0.58" />
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="13dp"
+        android:layout_height="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu"
+        app:layout_constraintVertical_bias="0.519" />
 
     <TextView
         android:id="@+id/textView"
@@ -78,20 +90,9 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="131dp"
-        android:layout_height="160dp"
-        android:text="1 Halsell Welcome Building \n2 H-E-B Discovery Center\n3 The Zachry Foundation Culinary Garden\n4 Goldsbury Foundation Pavilion/CHEF\n    Teaching Kitchen \n5 Mays Family Display Garden \n6 Kumamoto En Japanese Garden\n
-7 Sensory Garden:\n
-8 The Betty Kelso Center:\n
-9 Greehey Lawn:\n
-10 John L. Santikos Fountain of the Ferns\n
-11 Circle Bar Foundation Wisteria Arbor\n
-12 Sullivan Carriage House/Restaurant\n
-13 Richmond Plaza\n
-14 Rose and Old-Fashioned Gardens\n
-15 Sacred Garden\n
-16 WaterSaver Lane\n
-17 WaterSaver Community Garden\n"
+        android:layout_width="140dp"
+        android:layout_height="159dp"
+        android:text="1 Halsell Welcome Building \n2 H-E-B Discovery Center\n3 The Zachry Foundation Culinary Garden\n4 Goldsbury Foundation Pavilion/CHEF\n   Teaching Kitchen \n5 Mays Family Display Garden \n6 Kumamoto En Japanese Garden\n7 Sensory Garden:\n8 The Betty Kelso Center:\n9 Greehey Lawn:\n10 John L. Santikos Fountain of the Ferns\n11 Circle Bar Foundation Wisteria Arbor\n12 Sullivan Carriage House/Restaurant\n13 Richmond Plaza\n14 Rose and Old-Fashioned Gardens\n15 Sacred Garden\n16 WaterSaver Lane\n17 WaterSaver Community Garden\n"
         android:textSize="7dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/map"
@@ -104,21 +105,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="18 Overlook and Acequia\n19 Amphitheater\n
-20 Cactus and Succulent Garden\n
-21 Children’s Vegetable Garden\n
-22 Event Tent\n
-23 Exhibit Room\n
-24 Kleberg Desert Pavilion\n
-25 Northrup Tropical Room\n
-26 Palm and Cycad Pavilion\n
-27 Fern Grotto\n
-28 Texas Native Trail Pavilion\n
-29 Auld House\n
-30 Schumacher House\n
-31 East Texas Log Cabin\n
-32 Bird Watch\n
-33 Adobe House\n"
+        android:text="18 Overlook and Acequia\n19 Amphitheater\n20 Cactus and Succulent Garden\n21 Children’s Vegetable Garden\n22 Event Tent\n23 Exhibit Room\n24 Kleberg Desert Pavilion\n25 Northrup Tropical Room\n26 Palm and Cycad Pavilion\n27 Fern Grotto\n28 Texas Native Trail Pavilion\n29 Auld House\n30 Schumacher House\n31 East Texas Log Cabin\n32 Bird Watch\n33 Adobe House\n"
         android:textSize="7dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView3"
