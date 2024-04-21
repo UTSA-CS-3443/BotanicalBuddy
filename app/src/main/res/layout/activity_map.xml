@@ -89,7 +89,7 @@
         android:id="@+id/textView3"
         android:layout_width="152dp"
         android:layout_height="199dp"
-        android:text="1 Halsell Welcome Building \n2 H-E-B Discovery Center\n3 The Zachry Foundation Culinary Garden\n4 Goldsbury Foundation Pavilion/CHEF\n   Teaching Kitchen \n5 Mays Family Display Garden \n6 Kumamoto En Japanese Garden\n7 Sensory Garden:\n8 The Betty Kelso Center:\n9 Greehey Lawn:\n10 John L. Santikos Fountain of the Ferns\n11 Circle Bar Foundation Wisteria Arbor\n12 Sullivan Carriage House/Restaurant\n13 Richmond Plaza\n14 Rose and Old-Fashioned Gardens\n15 Sacred Garden\n16 WaterSaver Lane\n17 WaterSaver Community Garden\n"
+        android:text="1 Halsell Welcome Building \n2 H-E-B Discovery Center\n3 The Zachry Foundation Culinary Garden\n4 Goldsbury Foundation Pavilion/CHEF\n   Teaching Kitchen \n5 Mays Family Display Garden \n6 Kumamoto En Japanese Garden\n7 Sensory Garden:\n8 The Betty Kelso Center:\n9 Greehey Lawn:\n10 John L. Santikos Fountain of the Ferns\n11 Circle Bar Foundation Wisteria Arbor\n12 Sullivan Carriage House/Restaurant\n13 Richmond Plaza\n14 Rose and Old-Fashioned Gardens\n15 Sacred Garden\n16 WaterSaver Lane\n17 WaterSaver Community Garden\n18 Overlook and Acequia\n19 Amphitheater"
         android:textSize="8dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/map"
@@ -100,9 +100,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:layout_width="138dp"
-        android:layout_height="168dp"
-        android:text="18 Overlook and Acequia\n19 Amphitheater\n20 Cactus and Succulent Garden\n21 Children’s Vegetable Garden\n22 Event Tent\n23 Exhibit Room\n24 Kleberg Desert Pavilion\n25 Northrup Tropical Room\n26 Palm and Cycad Pavilion\n27 Fern Grotto\n28 Texas Native Trail Pavilion\n29 Auld House\n30 Schumacher House\n31 East Texas Log Cabin\n32 Bird Watch\n33 Adobe House\n"
+        android:layout_width="218dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="58dp"
+        android:text="20 Cactus and Succulent Garden\n21 Children’s Vegetable Garden\n22 Event Tent\n23 Exhibit Room\n24 Kleberg Desert Pavilion\n25 Northrup Tropical Room\n26 Palm and Cycad Pavilion\n27 Fern Grotto\n28 Texas Native Trail Pavilion\n29 Auld House\n30 Schumacher House\n31 East Texas Log Cabin\n32 Bird Watch\n33 Adobe House\n"
         android:textSize="8dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView3"
