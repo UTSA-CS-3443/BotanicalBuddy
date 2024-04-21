@@ -58,6 +58,11 @@ public class AttractionsPageActivity extends AppCompatActivity {
                 textViewName.setText(destination.getName());
                 textViewDescription.setText(destination.getDescription());
                 imageViewAttraction.setImageResource(destination.getId());
+                textViewName.setText(destination.getName());
+                textViewDescription.setText(destination.getDescription());
+                int imageResId = getResources().getIdentifier(
+                        "destination_" + destinationId, "drawable", getPackageName());
+                imageViewAttraction.setImageResource(imageResId);
             } else {
                 handleNoDestination();
             }
