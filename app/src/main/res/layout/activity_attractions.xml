@@ -38,7 +38,7 @@
             android:layout_height="300dp"
             android:layout_below="@id/viewPinkBackground"
             android:scaleType="centerCrop"
-            android:src="@drawable/mays_fam_display" />
+            android:src="@drawable/attraction_default" />
 
         <TextView
             android:id="@+id/textViewAttractionDescription"

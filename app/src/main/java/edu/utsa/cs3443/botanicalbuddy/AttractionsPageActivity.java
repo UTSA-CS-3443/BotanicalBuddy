@@ -112,7 +112,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
    /* private void initializeImageMap() {
         Map<String , Integer> destinationImageMap = new HashMap<>();
         // Populate the map with destination names and corresponding image resource IDs
-        destinationImageMap.put("Mays Family Display Garden", R.drawable.mays_fam_display);
+        destinationImageMap.put("Mays Family Display Garden", R.drawable.attraction_default);
         destinationImageMap.put("Kumamoto enr", R.drawable.kumamoto_en);
         destinationImageMap.put("greehey lawn", R.drawable.greehey_lawn);
 
