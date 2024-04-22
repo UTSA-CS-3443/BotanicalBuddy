@@ -33,6 +33,7 @@ public class LoginCheck {
         if (!accounts.exists()){
             accounts.createNewFile();
         }
+
         try {
             String content = username + "," + password + "," + hint;
 

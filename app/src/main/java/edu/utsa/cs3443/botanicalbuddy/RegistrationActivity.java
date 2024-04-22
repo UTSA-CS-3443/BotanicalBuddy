@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.botanicalbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,9 +45,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (username.isEmpty() || password.isEmpty() || hint.isEmpty()) {
                     Toast.makeText(RegistrationActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(RegistrationActivity.this, "fields filled, heres what itll look like in the csv: " + username + "," + password + "," + hint, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegistrationActivity.this, "fields filled, heres what itll look like in the csv: " + username + "," + password + "," + hint, Toast.LENGTH_SHORT).show();
                     try {
                         LoginCheck.addAccount(username, password, hint, RegistrationActivity.this);
+                        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
