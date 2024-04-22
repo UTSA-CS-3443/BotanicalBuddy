@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MapActivity.class);
                         intent.putExtra("user", user);
                         startActivity(intent);
+                        finish();
                     }
                     else {
                         Toast.makeText(LoginActivity.this, "Your Username or Password was not correct, try again.", Toast.LENGTH_SHORT).show();

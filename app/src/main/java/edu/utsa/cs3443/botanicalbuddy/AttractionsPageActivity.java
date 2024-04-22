@@ -101,9 +101,11 @@ public class AttractionsPageActivity extends AppCompatActivity {
                     startActivity(new Intent(AttractionsPageActivity.this, ConserveActivity.class));
                 }
                 if(item.getItemId() == R.id.menuLogin) {
-                    startActivity(new Intent(AttractionsPageActivity.this, LoginActivity.class));
+                    Intent logout = new Intent(AttractionsPageActivity.this, LoginActivity.class);
+                    logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(logout);
+                    finish();
                 }
-
                 return true;
             }
         });

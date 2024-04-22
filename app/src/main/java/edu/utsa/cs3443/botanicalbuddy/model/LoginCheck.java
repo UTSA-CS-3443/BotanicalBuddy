@@ -70,6 +70,9 @@ public class LoginCheck {
         File accounts = new File(context.getFilesDir(), "accounts.csv");
 
         FileInputStream csvFile = new FileInputStream(accounts);
+        if (!accounts.exists()){
+            accounts.createNewFile();
+        }
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
             String line;
             while ((line = reader.readLine()) != null) {

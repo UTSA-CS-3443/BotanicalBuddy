@@ -146,9 +146,13 @@ public class ConserveActivity extends AppCompatActivity {
                 }
                 if(item.getItemId() == R.id.menuConserve) {
                     startActivity(new Intent(ConserveActivity.this, ConserveActivity.class));
+                    finish();
                 }
                 if(item.getItemId() == R.id.menuLogin) {
-                    startActivity(new Intent(ConserveActivity.this, LoginActivity.class));
+                    Intent logout = new Intent(ConserveActivity.this, LoginActivity.class);
+                    logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(logout);
+                    finish();
                 }
 
                 return true;

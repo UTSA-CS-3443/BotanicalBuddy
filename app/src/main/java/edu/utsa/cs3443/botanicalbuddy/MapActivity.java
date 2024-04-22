@@ -118,7 +118,10 @@ public class MapActivity extends AppCompatActivity {
                     startActivity(new Intent(MapActivity.this, ConserveActivity.class));
                 }
                 if(item.getItemId() == R.id.menuLogin) {
-                    startActivity(new Intent(MapActivity.this, LoginActivity.class));
+                    Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                    logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(logout);
+                    finish();
                 }
 
                 return true;
