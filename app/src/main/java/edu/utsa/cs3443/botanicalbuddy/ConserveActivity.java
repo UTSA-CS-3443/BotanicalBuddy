@@ -44,24 +44,21 @@ public class ConserveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_conserve);
+
         Context thisContext = this;
         garden = new ArrayList<>();
         buildGarden();
 
+        //find RecyclerView and set it up with spacing etc
         RecyclerView recyclerView = findViewById(R.id.myRecyclerView);
-
         Plant_RV_Adapter adapter = new Plant_RV_Adapter(this, garden.get(0)); //set a default for launch
-
-
         int verticalSpaceHeight = 50; // Example vertical spacing in pixels
         int horizontalSpaceWidth = 20; // Example horizontal spacing in pixels
         recyclerView.addItemDecoration(new SpaceItemDecoration(verticalSpaceHeight, horizontalSpaceWidth));
-
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-
+        //boilerplate
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -89,7 +86,6 @@ public class ConserveActivity extends AppCompatActivity {
         Button coolTonesButton = findViewById(R.id.cool_tones);
         Button shadePlantsButton = findViewById(R.id.shade_plants);
         Button shallowSoilsButton = findViewById(R.id.shallow_soils);
-
 
         shadePlantsButton.setOnClickListener(new View.OnClickListener(){
             @Override
