@@ -100,7 +100,24 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
             photoId = resourceProvider.getDrawableId("main_logo_flower_only");
         }
         holder.img.setImageResource(photoId);
-        holder.checkBox.setChecked(false);
+
+        holder.checkBox.setOnClickListener((v) -> {
+            //Log.i("RV Adapter","checkbox clicked");
+            int pos = holder.getLayoutPosition();
+            Log.i("Plant_RV_Adapter",String.format("Pressed %d",pos));
+            int color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.secondary_green);
+            if (pos != RecyclerView.NO_POSITION){
+                //Log.i("RV Adapter","attempting color change");
+                if(holder.checkBox.isChecked()){
+                    color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.primary_pink);
+                    holder.cardView.setBackgroundColor(color);
+                } else {
+                    holder.cardView.setBackgroundColor(color);
+                }
+            }
+            holder.writeToUser();
+        });
+        //holder.checkBox.setChecked(false);
 
     }
 
@@ -140,21 +157,21 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
             checkBox = itemView.findViewById(R.id.checkBox);
             cardView = itemView.findViewById(R.id.myCardView);
 
-            checkBox.setOnClickListener((v) -> {
-                //Log.i("RV Adapter","checkbox clicked");
-                int pos = getAdapterPosition();
-                int color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.secondary_green);
-                if (pos != RecyclerView.NO_POSITION){
-                    //Log.i("RV Adapter","attempting color change");
-                    if(checkBox.isChecked()){
-                        color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.primary_pink);
-                        cardView.setBackgroundColor(color);
-                    } else {
-                        cardView.setBackgroundColor(color);
-                    }
-                }
-                writeToUser();
-            });
+//            checkBox.setOnClickListener((v) -> {
+//                //Log.i("RV Adapter","checkbox clicked");
+//                int pos = getAdapterPosition();
+//                int color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.secondary_green);
+//                if (pos != RecyclerView.NO_POSITION){
+//                    //Log.i("RV Adapter","attempting color change");
+//                    if(checkBox.isChecked()){
+//                        color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.primary_pink);
+//                        cardView.setBackgroundColor(color);
+//                    } else {
+//                        cardView.setBackgroundColor(color);
+//                    }
+//                }
+//                writeToUser();
+//            });
 
         }
         private void writeToUser(){
