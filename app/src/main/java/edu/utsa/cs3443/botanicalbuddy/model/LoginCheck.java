@@ -22,7 +22,6 @@ public class LoginCheck {
             accounts.createNewFile();
         }
 
-
         try {
             FileInputStream csvFile = new FileInputStream(accounts);
             BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile));
@@ -36,9 +35,7 @@ public class LoginCheck {
                 }
             }
             FileWriter fw = new FileWriter(accounts.getAbsoluteFile(), true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.append(content);
-            bw.close();
+            fw.append(content);
             fw.close();
 
         } catch (IOException e) {

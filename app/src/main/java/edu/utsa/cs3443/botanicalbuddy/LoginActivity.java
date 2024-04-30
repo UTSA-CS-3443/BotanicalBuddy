@@ -51,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
                     if (LoginCheck.validLogin(user, pass, LoginActivity.this)) {
                         Toast.makeText(LoginActivity.this, "Login Successful, Welcome " + user, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MapActivity.class);
-                        intent.putExtra("user", user);
                         startActivity(intent);
                         finish();
                     }
