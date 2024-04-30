@@ -18,7 +18,7 @@ import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 import edu.utsa.cs3443.botanicalbuddy.model.Destination;
 
 public class AttractionsPageActivity extends AppCompatActivity {
-   // private Map<Integer, Destination> destinationMap;
+
     private DestinationList destinationList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,23 +111,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
-   /* private void initializeImageMap() {
-        Map<String , Integer> destinationImageMap = new HashMap<>();
-        // Populate the map with destination names and corresponding image resource IDs
-        destinationImageMap.put("Mays Family Display Garden", R.drawable.attraction_default);
-        destinationImageMap.put("Kumamoto enr", R.drawable.kumamoto_en);
-        destinationImageMap.put("greehey lawn", R.drawable.greehey_lawn);
 
-    }
-
-
-   private void initializeDestinationMap() {
-        destinationMap = new HashMap<>();
-        // Assuming DestinationList.getDestinations() is available and returns a list of all destinations
-        for (Destination dest : destinationList.getDestinations()) {
-            destinationMap.put(dest.getId(), dest);
-        }
-    }*/
 }
 
 
