@@ -97,7 +97,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
             }
             if(item.getItemId() == R.id.menuLogin) {
                 Intent logout = new Intent(AttractionsPageActivity.this, LoginActivity.class);
-                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finishAffinity();
                 startActivity(logout);
                 finish();
             }

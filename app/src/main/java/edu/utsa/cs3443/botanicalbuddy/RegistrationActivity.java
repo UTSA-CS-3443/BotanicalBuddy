@@ -45,14 +45,18 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (username.isEmpty() || password.isEmpty() || hint.isEmpty()) {
                     Toast.makeText(RegistrationActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    //Toast.makeText(RegistrationActivity.this, "fields filled, heres what itll look like in the csv: " + username + "," + password + "," + hint, Toast.LENGTH_SHORT).show();
                     try {
-                        LoginCheck.addAccount(username, password, hint, RegistrationActivity.this);
-                        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-                        startActivity(intent);
+                        if (LoginCheck.addAccount(username, password, hint, RegistrationActivity.this)){
+                            Toast.makeText(RegistrationActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(RegistrationActivity.this, "Username already taken, please try a different username.", Toast.LENGTH_SHORT).show();
+                        }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+
                 }
             }
         });

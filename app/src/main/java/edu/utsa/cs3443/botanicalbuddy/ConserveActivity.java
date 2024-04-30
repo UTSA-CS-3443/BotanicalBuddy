@@ -150,7 +150,7 @@ public class ConserveActivity extends AppCompatActivity {
                 }
                 if(item.getItemId() == R.id.menuLogin) {
                     Intent logout = new Intent(ConserveActivity.this, LoginActivity.class);
-                    logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    finishAffinity();
                     startActivity(logout);
                     finish();
                 }
