@@ -71,6 +71,196 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
+        Button button3 = findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                    intent.putExtra("descriptionId", 3);
+                    startActivity(intent);
+                }
+        });
+
+        Button button4 = findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 4);
+                startActivity(intent);
+            }
+        });
+
+        Button button5 = findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 5);
+                startActivity(intent);
+            }
+        });
+
+        Button button6 = findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 6);
+                startActivity(intent);
+            }
+        });
+
+        Button button7 = findViewById(R.id.button7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 7);
+                startActivity(intent);
+            }
+        });
+
+        Button button8 = findViewById(R.id.button8);
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 8);
+                startActivity(intent);
+            }
+        });
+
+        Button button9 = findViewById(R.id.button9);
+        button9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 9);
+                startActivity(intent);
+            }
+        });
+
+        Button button10 = findViewById(R.id.button10);
+        button10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 10);
+                startActivity(intent);
+            }
+        });
+
+        Button button11 = findViewById(R.id.button11);
+        button11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 11);
+                startActivity(intent);
+            }
+        });
+
+        Button button12 = findViewById(R.id.button12);
+        button12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 12);
+                startActivity(intent);
+            }
+        });
+
+        Button button13 = findViewById(R.id.button13);
+        button13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 13);
+                startActivity(intent);
+            }
+        });
+
+        Button button14 = findViewById(R.id.button14);
+        button14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 14);
+                startActivity(intent);
+            }
+        });
+
+        Button button15 = findViewById(R.id.button15);
+        button15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 15);
+                startActivity(intent);
+            }
+        });
+
+        Button button16 = findViewById(R.id.button16);
+        button16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 16);
+                startActivity(intent);
+            }
+        });
+
+        Button button17 = findViewById(R.id.button17);
+        button17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 17);
+                startActivity(intent);
+            }
+        });
+
+        Button button18 = findViewById(R.id.button18);
+        button18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 18);
+                startActivity(intent);
+            }
+        });
+
+        Button button19 = findViewById(R.id.button19);
+        button19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 19);
+                startActivity(intent);
+            }
+        });
+
+        Button button20 = findViewById(R.id.button20);
+        button20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 20);
+                startActivity(intent);
+            }
+        });
+
+        Button button21 = findViewById(R.id.button21);
+        button21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MapActivity.this, AttractionsPageActivity.class);
+                intent.putExtra("descriptionId", 21);
+                startActivity(intent);
+            }
+        });
+
         // **Main Logo Click Listener**
         ImageView logo = findViewById(R.id.main_logo);
         logo.setOnClickListener(new View.OnClickListener() {
