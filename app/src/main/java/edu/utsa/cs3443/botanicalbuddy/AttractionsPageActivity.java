@@ -10,9 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 import edu.utsa.cs3443.botanicalbuddy.model.Destination;
@@ -91,23 +88,20 @@ public class AttractionsPageActivity extends AppCompatActivity {
     public void showMenu(View v) {
         PopupMenu popupMenu = new PopupMenu(AttractionsPageActivity.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId() == R.id.menuMap) {
-                    startActivity(new Intent(AttractionsPageActivity.this, MapActivity.class));
-                }
-                if(item.getItemId() == R.id.menuConserve) {
-                    startActivity(new Intent(AttractionsPageActivity.this, ConserveActivity.class));
-                }
-                if(item.getItemId() == R.id.menuLogin) {
-                    Intent logout = new Intent(AttractionsPageActivity.this, LoginActivity.class);
-                    logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(logout);
-                    finish();
-                }
-                return true;
+        popupMenu.setOnMenuItemClickListener(item -> {
+            if(item.getItemId() == R.id.menuMap) {
+                startActivity(new Intent(AttractionsPageActivity.this, MapActivity.class));
             }
+            if(item.getItemId() == R.id.menuConserve) {
+                startActivity(new Intent(AttractionsPageActivity.this, ConserveActivity.class));
+            }
+            if(item.getItemId() == R.id.menuLogin) {
+                Intent logout = new Intent(AttractionsPageActivity.this, LoginActivity.class);
+                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(logout);
+                finish();
+            }
+            return true;
         });
         popupMenu.show();
     }
