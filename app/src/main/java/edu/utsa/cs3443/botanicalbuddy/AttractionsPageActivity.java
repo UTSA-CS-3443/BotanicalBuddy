@@ -13,10 +13,19 @@ import java.io.IOException;
 
 import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 import edu.utsa.cs3443.botanicalbuddy.model.Destination;
-
+/**
+ * Activity for displaying attractions from the map.
+ * This activity shows details of a specific attraction based on the destination ID passed through intent.
+ * It handles UI interactions and navigation to other activities based on user interaction.
+ */
 public class AttractionsPageActivity extends AppCompatActivity {
 
     private DestinationList destinationList;
+    /**
+     * Activity for displaying attractions in a tourist app.
+     * This activity shows details of a specific attraction based on the destination ID passed through intent.
+     * It handles UI interactions and navigation to other activities based on user interaction.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +46,10 @@ public class AttractionsPageActivity extends AppCompatActivity {
 
         setupUI();
     }
+    /**
+     * Sets up the user interface by initializing UI components and setting event handlers.
+     * It also configures the UI based on the destination ID passed to the activity.
+     */
 
     private void setupUI() {
         ImageView logo = findViewById(R.id.main_logo);
@@ -64,6 +77,11 @@ public class AttractionsPageActivity extends AppCompatActivity {
             handleNoDestination();
         }
     }
+    /**
+     * Finds a destination by its ID.
+     * @param id The ID of the destination to find.
+     * @return The Destination object if found, otherwise null.
+     */
 
     private Destination findDestinationById(int id) {
         for (Destination dest : destinationList.getDestinations()) {
@@ -73,7 +91,10 @@ public class AttractionsPageActivity extends AppCompatActivity {
         }
         return null; // Return null if not found
     }
-
+    /**
+     * Handles scenarios where no valid destination is found. This method updates the UI
+     * to indicate that no data is available.
+     */
     private void handleNoDestination() {
         TextView textViewName = findViewById(R.id.textViewAttractionName);
         TextView textViewDescription = findViewById(R.id.textViewAttractionDescription);
@@ -84,7 +105,11 @@ public class AttractionsPageActivity extends AppCompatActivity {
         imageViewAttraction.setVisibility(View.GONE);
     }
 
-
+    /**
+     * Displays a popup menu when the menu icon is clicked.
+     * Handles navigation based on the user's menu selection
+     * @param v The view (menu icon) that was clicked.
+     */
     public void showMenu(View v) {
         PopupMenu popupMenu = new PopupMenu(AttractionsPageActivity.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());

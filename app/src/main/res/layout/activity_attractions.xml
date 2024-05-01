@@ -45,12 +45,19 @@
                 android:layout_below="@id/viewPinkBackground"
                 android:scaleType="centerCrop"
                 android:src="@drawable/attraction_default" />
+            <View
+                android:id="@+id/viewPinkBelowImage"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/imageViewAttraction"
+                android:background="@color/primary_pink" />
+
 
             <TextView
                 android:id="@+id/textViewAttractionDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageViewAttraction"
+                android:layout_below="@id/viewPinkBelowImage"
                 android:padding="16dp"
                 android:text="Description of the attraction goes here."
                 android:textSize="16sp" />
