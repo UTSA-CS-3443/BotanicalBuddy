@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/soft_blue"
+    tools:context=".ConserveLandingActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/menu" />
+
+    <TextView
+        android:id="@+id/landing_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/include"
+        android:text="@string/water_savers"
+        android:textAlignment="center"
+        android:textSize="36dp"
+        android:background="@color/primary_pink"/>
+
+    <ImageView
+        android:id="@+id/landing_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/watersaver_garden"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@id/landing_title"/>
+
+    <TextView
+        android:id="@+id/watersaver_blurb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/waterSaverLandscaping"
+        app:layout_constraintTop_toBottomOf="@id/landing_image"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/go_to_water_savers"/>
+
+    <Button
+        android:id="@+id/go_to_water_savers"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/water_savers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/watersaver_blurb"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

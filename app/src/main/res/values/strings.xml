@@ -15,4 +15,6 @@
     <string name="welcome">Welcome to</string>
     <string name="destinations_and_amenities">Destinations and Amenities</string>
     <string name="key">Key</string>
+    <string name="conserveLandingTitle">Ways to Conserve</string>
+    <string name="waterSaverLandscaping">Did you know that about 30% of the water used in San Antonio households is applied solely to landscapes? Low water landscaping is strongly encouraged in arid climates, where water is a limited resource. Drought tolerant gardens and efficient irrigation are both extremely important in areas such as San Antonio and other climates where rain is not plentiful.\n\nAdd some to your garden to help save our city water!</string>
 </resources>

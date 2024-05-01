@@ -158,7 +158,7 @@ public class ConserveActivity extends AppCompatActivity {
                     startActivity(new Intent(ConserveActivity.this, MapActivity.class));
                 }
                 if(item.getItemId() == R.id.menuConserve) {
-                    startActivity(new Intent(ConserveActivity.this, ConserveActivity.class));
+                    startActivity(new Intent(ConserveActivity.this, ConserveLandingActivity.class));
                     finish();
                 }
                 if(item.getItemId() == R.id.menuLogin) {

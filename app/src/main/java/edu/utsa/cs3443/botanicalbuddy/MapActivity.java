@@ -425,7 +425,7 @@ public class MapActivity extends AppCompatActivity {
                     startActivity(new Intent(MapActivity.this, MapActivity.class));
                 }
                 if(item.getItemId() == R.id.menuConserve) {
-                    startActivity(new Intent(MapActivity.this, ConserveActivity.class));
+                    startActivity(new Intent(MapActivity.this, ConserveLandingActivity.class));
                 }
                 if(item.getItemId() == R.id.menuLogin) {
                     Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
