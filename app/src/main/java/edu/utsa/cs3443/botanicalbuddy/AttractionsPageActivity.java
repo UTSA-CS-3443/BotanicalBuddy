@@ -79,7 +79,6 @@ public class AttractionsPageActivity extends AppCompatActivity {
     }
     /**
      * Finds a destination by its ID.
-     *
      * @param id The ID of the destination to find.
      * @return The Destination object if found, otherwise null.
      */
@@ -108,8 +107,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
 
     /**
      * Displays a popup menu when the menu icon is clicked.
-     * Handles navigation based on the user's menu selection.
-     *
+     * Handles navigation based on the user's menu selection
      * @param v The view (menu icon) that was clicked.
      */
     public void showMenu(View v) {
