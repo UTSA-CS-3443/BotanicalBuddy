@@ -118,7 +118,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
                 startActivity(new Intent(AttractionsPageActivity.this, MapActivity.class));
             }
             if(item.getItemId() == R.id.menuConserve) {
-                startActivity(new Intent(AttractionsPageActivity.this, ConserveActivity.class));
+                startActivity(new Intent(AttractionsPageActivity.this, ConserveLandingActivity.class));
             }
             if(item.getItemId() == R.id.menuLogin) {
                 Intent logout = new Intent(AttractionsPageActivity.this, LoginActivity.class);

@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
@@ -21,7 +23,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import edu.utsa.cs3443.botanicalbuddy.model.Plant;
@@ -51,12 +57,25 @@ public class ConserveActivity extends AppCompatActivity {
 
         //find RecyclerView and set it up with spacing etc
         RecyclerView recyclerView = findViewById(R.id.myRecyclerView);
-        Plant_RV_Adapter adapter = new Plant_RV_Adapter(this, garden.get(0)); //set a default for launch
-        int verticalSpaceHeight = 50; // Example vertical spacing in pixels
-        int horizontalSpaceWidth = 20; // Example horizontal spacing in pixels
+        Plant_RV_Adapter adapter = new Plant_RV_Adapter(this, garden.get(0)); //set a default for launch with 0
+        int verticalSpaceHeight = 32; // Example vertical spacing in pixels
+        int horizontalSpaceWidth = 16; // Example horizontal spacing in pixels
+        recyclerView.setHasFixedSize(true);
+        recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 30);
+        recyclerView.setItemViewCacheSize(30);
         recyclerView.addItemDecoration(new SpaceItemDecoration(verticalSpaceHeight, horizontalSpaceWidth));
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+
+
+
+
+
+
+
 
         //boilerplate
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -66,14 +85,8 @@ public class ConserveActivity extends AppCompatActivity {
         });
 
         //----------------------------------------------Jesus' menu
-        ImageView homeLogo = findViewById(R.id.main_logo);
+        //ImageView homeLogo = findViewById(R.id.main_logo);
         ImageView menu = findViewById(R.id.dropdown_menu);
-        homeLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ConserveActivity.this, MainActivity.class));
-            }
-        });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +158,7 @@ public class ConserveActivity extends AppCompatActivity {
                     startActivity(new Intent(ConserveActivity.this, MapActivity.class));
                 }
                 if(item.getItemId() == R.id.menuConserve) {
-                    startActivity(new Intent(ConserveActivity.this, ConserveActivity.class));
+                    startActivity(new Intent(ConserveActivity.this, ConserveLandingActivity.class));
                     finish();
                 }
                 if(item.getItemId() == R.id.menuLogin) {
@@ -160,6 +173,25 @@ public class ConserveActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
+//    public boolean getItemStatus(String commonName) throws IOException {
+//        File accounts = new File(ConserveActivity.this.getFilesDir(), "accounts.csv");
+//        FileInputStream csvFile = new FileInputStream(accounts);
+//        String currUser = LoginActivity.getCurrentUser();
+//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                String[] data = line.split(",");
+//                if (data[0].equals(currUser)) {
+//                    if (line.contains(commonName)){
+//                        return true;
+//                    }
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
     /**
      * This utility class provides methods to access application resources within the Botanical Buddy application.
      */

@@ -14,8 +14,20 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
+import edu.utsa.cs3443.botanicalbuddy.LoginActivity;
 import edu.utsa.cs3443.botanicalbuddy.R;
 import edu.utsa.cs3443.botanicalbuddy.ConserveActivity;
 
@@ -49,7 +61,6 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
         this.context = context;
         this.plants = plants;
         this.resourceProvider = new ConserveActivity.ResourceProvider(context);
-
     }
 
     /**
@@ -78,6 +89,7 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
     public Plant_RV_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_row, parent, false);
+        //view.setBackgroundColor(0);
         return new Plant_RV_Adapter.MyViewHolder(view);
     }
 
@@ -101,24 +113,37 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
         }
         holder.img.setImageResource(photoId);
 
+
+
+        int colorSoftBlue = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.soft_blue);
+        int colorPrimaryPink = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.primary_pink);
+        try {
+            boolean isInGarden = getItemStatus(plants.get(position).getCommonName());
+            holder.checkBox.setChecked(isInGarden);
+            int color = isInGarden ? colorPrimaryPink : colorSoftBlue;
+            holder.cardView.setBackgroundColor(color);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //holder.checkBox.setChecked(false);
         holder.checkBox.setOnClickListener((v) -> {
-            //Log.i("RV Adapter","checkbox clicked");
-            int pos = holder.getLayoutPosition();
-            Log.i("Plant_RV_Adapter",String.format("Pressed %d",pos));
-            int color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.secondary_green);
-            if (pos != RecyclerView.NO_POSITION){
-                //Log.i("RV Adapter","attempting color change");
-                if(holder.checkBox.isChecked()){
-                    color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.primary_pink);
-                    holder.cardView.setBackgroundColor(color);
-                } else {
-                    holder.cardView.setBackgroundColor(color);
+
+            if (position != RecyclerView.NO_POSITION){
+                //Log.i("RV Adapter",String.format("clicked %d", getItemId(position)));
+                try {
+                    if (holder.checkBox.isChecked()){
+                        holder.cardView.setBackgroundColor(colorPrimaryPink);
+                    } else {
+                        holder.cardView.setBackgroundColor(colorSoftBlue);
+                    }
+                    writeToUser(plants.get(position).getCommonName());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
-            holder.writeToUser();
-        });
-        //holder.checkBox.setChecked(false);
 
+        });
     }
 
     /**
@@ -127,8 +152,62 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
      * @return The number of Plant objects in the plants list.
      */
     @Override
-    public int getItemCount() {
-        return plants.size();
+    public int getItemCount() { return plants.size(); }
+
+    private void writeToUser(String commonName) throws IOException {
+        File accounts = new File(context.getFilesDir(), "accounts.csv");
+        FileInputStream csvFile = new FileInputStream(accounts);
+        String currUser = LoginActivity.getCurrentUser();
+        StringBuilder tempFile = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data[0].equals(currUser)) {
+                    if(line.contains(commonName)){
+                        String tempLine = line.replace(","+commonName,"");
+                        tempFile.append(tempLine);
+                        tempFile.append("\n");
+                    } else {
+                        String tempLine = line + "," + commonName;
+                        tempFile.append(tempLine);
+                        tempFile.append("\n");
+                    }
+
+                } else {
+                    tempFile.append(line);
+                    tempFile.append("\n");
+                }
+            }
+            FileWriter writer = new FileWriter(new File(context.getFilesDir(),"accounts.csv"));
+            Log.i("FUCKIN ELL M8", String.valueOf(tempFile));
+            writer.write(String.valueOf(tempFile));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public boolean getItemStatus(String commonName) throws IOException {
+        File accounts = new File(context.getFilesDir(), "accounts.csv");
+        FileInputStream csvFile = new FileInputStream(accounts);
+        String currUser = LoginActivity.getCurrentUser();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data[0].equals(currUser)) {
+                    if (line.contains(commonName)){
+                        return true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     /**
@@ -157,25 +236,8 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
             checkBox = itemView.findViewById(R.id.checkBox);
             cardView = itemView.findViewById(R.id.myCardView);
 
-//            checkBox.setOnClickListener((v) -> {
-//                //Log.i("RV Adapter","checkbox clicked");
-//                int pos = getAdapterPosition();
-//                int color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.secondary_green);
-//                if (pos != RecyclerView.NO_POSITION){
-//                    //Log.i("RV Adapter","attempting color change");
-//                    if(checkBox.isChecked()){
-//                        color = ConserveActivity.ResourceProvider.getStaticContext().getResources().getColor(R.color.primary_pink);
-//                        cardView.setBackgroundColor(color);
-//                    } else {
-//                        cardView.setBackgroundColor(color);
-//                    }
-//                }
-//                writeToUser();
-//            });
+        }
 
-        }
-        private void writeToUser(){
-            Log.i("RV Adapter","TODO, WRITE TO FILE");
-        }
     }
+
 }

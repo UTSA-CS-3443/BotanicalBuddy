@@ -24,7 +24,7 @@ import edu.utsa.cs3443.botanicalbuddy.model.LoginCheck;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private String user;
+    private static String user;
     private String pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,6 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-
-
         Button doLogin = findViewById(R.id.doLogin);
         TextView goToHint = findViewById(R.id.goToHint);
         Button goToRegister = findViewById(R.id.goToRegister);
@@ -49,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         doLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //todo: make it pass the user to the next activity
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
+                user = username.getText().toString();
+                pass = password.getText().toString();
 
 
                 try {
@@ -101,5 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public static String getCurrentUser() {
+        return user;
     }
 }
