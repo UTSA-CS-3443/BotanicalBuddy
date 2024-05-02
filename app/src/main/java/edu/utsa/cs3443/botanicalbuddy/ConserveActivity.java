@@ -173,25 +173,25 @@ public class ConserveActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
-    public boolean getItemStatus(String commonName) throws IOException {
-        File accounts = new File(ConserveActivity.this.getFilesDir(), "accounts.csv");
-        FileInputStream csvFile = new FileInputStream(accounts);
-        String currUser = LoginActivity.getCurrentUser();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data[0].equals(currUser)) {
-                    if (line.contains(commonName)){
-                        return true;
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+//    public boolean getItemStatus(String commonName) throws IOException {
+//        File accounts = new File(ConserveActivity.this.getFilesDir(), "accounts.csv");
+//        FileInputStream csvFile = new FileInputStream(accounts);
+//        String currUser = LoginActivity.getCurrentUser();
+//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                String[] data = line.split(",");
+//                if (data[0].equals(currUser)) {
+//                    if (line.contains(commonName)){
+//                        return true;
+//                    }
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
     /**
      * This utility class provides methods to access application resources within the Botanical Buddy application.
      */
