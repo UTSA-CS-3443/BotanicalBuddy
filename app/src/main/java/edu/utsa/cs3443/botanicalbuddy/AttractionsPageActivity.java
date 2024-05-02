@@ -54,7 +54,7 @@ public class AttractionsPageActivity extends AppCompatActivity {
     private void setupUI() {
         ImageView logo = findViewById(R.id.main_logo);
         ImageView menu = findViewById(R.id.dropdown_menu);
-        logo.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
+        logo.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
         menu.setOnClickListener(this::showMenu);
 
         TextView textViewName = findViewById(R.id.textViewAttractionName);
