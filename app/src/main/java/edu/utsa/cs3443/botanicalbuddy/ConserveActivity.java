@@ -85,7 +85,6 @@ public class ConserveActivity extends AppCompatActivity {
         });
 
         //----------------------------------------------Jesus' menu
-        //ImageView homeLogo = findViewById(R.id.main_logo);
         ImageView menu = findViewById(R.id.dropdown_menu);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override

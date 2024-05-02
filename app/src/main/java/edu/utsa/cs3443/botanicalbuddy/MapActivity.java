@@ -381,14 +381,6 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
-        // **Main Logo Click Listener**
-        ImageView logo = findViewById(R.id.main_logo);
-        logo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MapActivity.this, MainActivity.class)); // log's user out
-            }
-        });
 
         /**
          * Initializes the dropdown menu to handle navigation.

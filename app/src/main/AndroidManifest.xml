@@ -22,9 +22,6 @@
             android:name=".RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".MapActivity"
             android:exported="false" />
         <activity
