@@ -21,11 +21,7 @@ import java.io.IOException;
 import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 
 public class MapActivity extends AppCompatActivity {
-
-    /**
-     * Holds the list of destinations loaded into the application.
-     */
-    DestinationList list;
+    
     Intent intent;
 
     @Override
@@ -34,14 +30,7 @@ public class MapActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_map);
 
-            list = new DestinationList();
-        Log.i("load","load");
-             try {
-                list.loadDestinations(this); //load destination data
-                Log.i("load","load");
-            } catch (IOException e) {
-                throw new RuntimeException(e); // handle exception
-            }
+
 
         // **Button Click Listeners**
 
