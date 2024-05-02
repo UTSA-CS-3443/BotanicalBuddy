@@ -1,6 +1,6 @@
 # BotanicalBuddy
 Ctrl Alt Defeat Team
-Contributers: Jacob Macias,
+Contributers: Paul Dutton, Jesus Torres, Jacob Macias, Devin Dunn
 
 Description Of App: 
 
