@@ -9,12 +9,25 @@ import java.io.InputStreamReader;
 
 import android.content.Context;
 
-
+/**
+ * @author Devin Dunn
+ *
+ * can add accounts, get their hints, and validate login attempts
+ */
 public class LoginCheck {
     private String username;
     private String password;
     private String hint;
 
+    /**
+     * adds an account to the device
+     * @param username
+     * @param password
+     * @param hint
+     * @param context
+     * @return
+     * @throws IOException
+     */
     public static boolean addAccount(String username, String password, String hint, Context context) throws IOException {
         //checks if the accounts file exists, if it doesnt, it creates a blank one to stop FileIO errors.
         File accounts = new File(context.getFilesDir(), "accounts.csv");
@@ -46,6 +59,13 @@ public class LoginCheck {
         return true;
     }
 
+    /**
+     * gets login hints
+     * @param username
+     * @param context
+     * @return
+     * @throws IOException
+     */
     public static String getHint(String username, Context context) throws IOException {
         //checks if the accounts file exists, if it doesnt, it creates a blank one to stop FileIO errors.
         File accounts = new File(context.getFilesDir(), "accounts.csv");
@@ -70,6 +90,14 @@ public class LoginCheck {
         return "Your hint is: N/A";
     }
 
+    /**
+     * validates a login
+     * @param username
+     * @param password
+     * @param context
+     * @return
+     * @throws IOException
+     */
     public static Boolean validLogin(String username, String password, Context context) throws IOException {
         //checks if the accounts file exists, if it doesnt, it creates a blank one to stop FileIO errors.
         File accounts = new File(context.getFilesDir(), "accounts.csv");

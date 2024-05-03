@@ -25,9 +25,18 @@ import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
  * this is the page that shows the map for the park and will send you to a page with info about each attraction
  */
 public class MapActivity extends AppCompatActivity {
-    
+    /**
+     * the intent we want to go to
+     */
     Intent intent;
 
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

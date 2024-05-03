@@ -22,10 +22,29 @@ import java.io.IOException;
 
 import edu.utsa.cs3443.botanicalbuddy.model.LoginCheck;
 
+/**
+ * @author Devin Dunn
+ * Main page we start at.
+ * passes the username and password entered to the logincheck class and if it is correct passes the user to the next activity
+ * if the password is incorrect you get prompted to try again
+ */
 public class LoginActivity extends AppCompatActivity {
-
+    /**
+     * holds the currently logged in user
+     */
     private static String user;
+    /**
+     * holds their password to pass around
+     */
     private String pass;
+
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +104,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    //a call the app uses to get the current user for all future pages
+
+    /**
+     *
+     * @return  get the current user for all future pages
+     */
     public static String getCurrentUser() {
         return user;
     }
