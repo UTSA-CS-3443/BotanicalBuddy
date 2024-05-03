@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 pass = password.getText().toString();
 
                 //passes the username and password entered to the logincheck class and if it is correct passes the user to the next activity
-                //if the password is incorrect you get jumpscared... and prompted to try again
+                //if the password is incorrect you get prompted to try again
                 try {
                     if (LoginCheck.validLogin(user, pass, LoginActivity.this)) {
                         Toast.makeText(LoginActivity.this, "Login Successful, Welcome " + user, Toast.LENGTH_SHORT).show();
@@ -61,23 +61,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(LoginActivity.this, "Your Username or Password was not correct, try again.", Toast.LENGTH_SHORT).show();
-                        theRock.setVisibility(View.VISIBLE);
-                        AssetFileDescriptor afd = getAssets().openFd("vine-boom.mp3");
-                        MediaPlayer player = new MediaPlayer();
-                        player.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
-                        player.prepare();
-                        player.start();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                theRock.setVisibility(View.INVISIBLE);
-                                player.stop();
-                                player.release();
-
-                            }
-                        },2000);   // parameter to show for a particular time
-
-
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
