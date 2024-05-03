@@ -6,5 +6,5 @@ Description Of App: This is our botanical buddy app, it is for the San Antonio B
 
 Any Instructions to run: Create a login and explore the app!
 
-Any known issues: None.
+Any known issues: Not enough information provided on the website for some destinations. Using a filler image in place for now.
 
