@@ -70,13 +70,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //takes the user to the registration page
         goToRegister.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intent);
             }
         });
-
+        //takes the user to the hint page
         goToHint.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(LoginActivity.this, HintActivity.class);
@@ -84,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    //a call the app uses to get the current user for all future pages
     public static String getCurrentUser() {
         return user;
     }
