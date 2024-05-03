@@ -34,6 +34,7 @@ public class HintActivity extends AppCompatActivity {
         TextView hintText = findViewById(R.id.hintText);
 
 
+        //checks if the username is valid, and if it is changes the text above to what was set as a password hint
         checkHint.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String username = usernameText.getText().toString();

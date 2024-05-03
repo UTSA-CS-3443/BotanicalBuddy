@@ -16,12 +16,14 @@ public class LoginCheck {
     private String hint;
 
     public static boolean addAccount(String username, String password, String hint, Context context) throws IOException {
-
+        //checks if the accounts file exists, if it doesnt, it creates a blank one to stop FileIO errors.
         File accounts = new File(context.getFilesDir(), "accounts.csv");
         if (!accounts.exists()){
             accounts.createNewFile();
         }
 
+        //takes the input from the registrationactivity, checks if the username already exists, and if it does it does not create the account
+        //otherwise, it adds the account to the accounts.csv file.
         try {
             FileInputStream csvFile = new FileInputStream(accounts);
             BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile));
@@ -45,11 +47,13 @@ public class LoginCheck {
     }
 
     public static String getHint(String username, Context context) throws IOException {
+        //checks if the accounts file exists, if it doesnt, it creates a blank one to stop FileIO errors.
         File accounts = new File(context.getFilesDir(), "accounts.csv");
         if (!accounts.exists()){
             accounts.createNewFile();
         }
 
+        //checks if the username exists, and if found in the accounts file returns the password hint of the account.
         FileInputStream csvFile = new FileInputStream(accounts);
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
             String line;
@@ -67,12 +71,14 @@ public class LoginCheck {
     }
 
     public static Boolean validLogin(String username, String password, Context context) throws IOException {
+        //checks if the accounts file exists, if it doesnt, it creates a blank one to stop FileIO errors.
         File accounts = new File(context.getFilesDir(), "accounts.csv");
         if (!accounts.exists()){
             accounts.createNewFile();
         }
         FileInputStream csvFile = new FileInputStream(accounts);
 
+        //checks the first and second part of each CSV line for the username and password entered, if it succeeds it logs in the user
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(csvFile))) {
             String line;
             while ((line = reader.readLine()) != null) {

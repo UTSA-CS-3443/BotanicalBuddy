@@ -50,7 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                 user = username.getText().toString();
                 pass = password.getText().toString();
 
-
+                //passes the username and password entered to the logincheck class and if it is correct passes the user to the next activity
+                //if the password is incorrect you get jumpscared... and prompted to try again
                 try {
                     if (LoginCheck.validLogin(user, pass, LoginActivity.this)) {
                         Toast.makeText(LoginActivity.this, "Login Successful, Welcome " + user, Toast.LENGTH_SHORT).show();

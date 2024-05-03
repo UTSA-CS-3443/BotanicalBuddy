@@ -42,6 +42,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = passwordText.getText().toString();
                 String hint = hintText.getText().toString();
 
+                //takes user input for all fields and if any are empty, displays error message
+                //when all are filled prompts logincheck to add the account to the csv
                 if (username.isEmpty() || password.isEmpty() || hint.isEmpty()) {
                     Toast.makeText(RegistrationActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
