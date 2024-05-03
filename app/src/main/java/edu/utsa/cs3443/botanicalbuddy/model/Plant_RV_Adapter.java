@@ -190,6 +190,12 @@ public class Plant_RV_Adapter extends RecyclerView.Adapter<Plant_RV_Adapter.MyVi
 
     }
 
+    /**
+     *
+     * @param commonName of a plant to check
+     * @return if it's in the current user's garden
+     * @throws IOException
+     */
     public boolean getItemStatus(String commonName) throws IOException {
         File accounts = new File(context.getFilesDir(), "accounts.csv");
         FileInputStream csvFile = new FileInputStream(accounts);

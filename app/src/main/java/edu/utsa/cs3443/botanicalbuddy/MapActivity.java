@@ -20,6 +20,10 @@ import java.io.IOException;
 
 import edu.utsa.cs3443.botanicalbuddy.model.DestinationList;
 
+/**
+ * @author Jesus Torres
+ * this is the page that shows the map for the park and will send you to a page with info about each attraction
+ */
 public class MapActivity extends AppCompatActivity {
     
     Intent intent;
